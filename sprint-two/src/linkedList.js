@@ -18,15 +18,21 @@ var LinkedList = function(){
     list.head = list.tail;
     return storeHead.value;
   };
-  //Fails test starting line 22.
-  list.contains = function(target){
-    if(this.head.value === target){
+
+  list.contains = function(target, next){
+    if (next === undefined) {
+      next = list.tail;
+    }
+
+    if(list.head.value === target || next.value === target){
       return true;
+
+    } else if (next.next === null) {
+      return false;
+
+    } else {
+      list.contains(target, next);
     }
-    if(this.tail.next){
-      list.contains(this.tail.next);
-    }
-    return false;
   };
 
   return list;
@@ -41,6 +47,3 @@ var Node = function(value){
   return node;
 };
 
-/*
- * Complexity: What is the time complexity of the above functions?
- */

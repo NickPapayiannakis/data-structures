@@ -55,6 +55,5 @@ var BinarySearchTree = function(value, memo){
     if (this.right !== null){
       this.right.depthFirstLog(cb);
     }
+
   };
-
-

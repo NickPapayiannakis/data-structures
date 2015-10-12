@@ -1,22 +1,25 @@
-OVERVIEW: CONTAINS
-DESCRIPTION: accepts a callback and executes it on every value contained in the tree.
+OVERVIEW: RETREIVE
+DESCRIPTION: Retreives the value at a key
 
-1. We need to determine if a tree exists
-2.If it does, we invoke the call back on the tree's value
-3.Also, if the tree has a left child, invoke the callback on the left
-4.If the tree has a child on the right, invoke the callback on the right
+1. If there is no bucket, we have nothing to return, hence null!
+2. if there is, we look inside the bucket
+3. when we are looking inside the bucket, if there is a
+matching key in one of the tupals, return that key's value.
 
-TEST: should execute a callback on every value in a tree using "depthFirstLog"
 
-BinarySearchTree.prototype.contains = function(target){
+INPUT: a key
+OUTPUT: value
 
-  };
+TEST: should retrieve the value from a specified key
 
 PSEUDO-CODE:
+// set up var index
+// set up var bucket
+// if no bucket
+  // return null
+// otherwise
+  // loop inside the bucket
+    //if matching key found
+      // return value;
+    // otherwise return null
 
-//if this.value is not equal to null
-  //invoke call back with this.value
-//if this.left is not equal to null
-  //call the depthFirstLog recursively on this.left
-//if this.right is not equal to null
-  //call the depthFirstLog recursively on this.right
