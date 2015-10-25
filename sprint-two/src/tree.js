@@ -1,8 +1,9 @@
-var Tree = function(value){
+var Tree = function(value) {
   var newTree = {};
-  newTree.value = value;
 
+  newTree.value = value;
   newTree.children = [];
+
   _.extend(newTree, treeMethods);
 
   return newTree;
@@ -10,24 +11,24 @@ var Tree = function(value){
 
 var treeMethods = {};
 
-treeMethods.addChild = function(value){
+treeMethods.addChild = function(value) {
   var newTree = Tree(value);
   this.children.push(newTree);
 };
 
-// access to .children property
-treeMethods.contains = function(target){
-  var result = false;
+treeMethods.contains = function(target) {
+  var isInTree = false;
 
-  var checkTree = function(node){
+  var checkTree = function(node) {
     if(node.value === target){
-      result = true;
+      isInTree = true;
     } else {
-      _.each(node.children, function(item){
+      _.each(node.children, function(item) {
         checkTree(item);
       });
     }
-  }
+  };
+
   checkTree(this);
-  return result;
-}
+  return isInTree;
+};

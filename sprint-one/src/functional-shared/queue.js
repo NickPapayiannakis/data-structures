@@ -1,6 +1,4 @@
-var Queue = function(){
-  // Hey! Rewrite in the new style. Your code will wind up looking very similar,
-  // but try not not reference your old code in writing the new style.
+var Queue = function() {
   var someInstance = {};
   someInstance.front = 0;
   someInstance.back = 0;
@@ -9,24 +7,28 @@ var Queue = function(){
   _.extend(someInstance, queueMethods);
 
   return someInstance;
-
 };
 
 var queueMethods = {
-  enqueue: function(value){
+
+  enqueue: function(value) {
     this.storage[this.back] = value;
     this.back++;
   },
-  dequeue: function(){
+
+  dequeue: function() {
     var result = this.storage[this.front];
     delete this.storage[this.front];
 
-   if (this.front < this.back){
+    if (this.front < this.back) {
     this.front++;
    }
+
    return result;
   },
-  size: function(){
+
+  size: function() {
     return this.back - this.front;
   }
+
 };
